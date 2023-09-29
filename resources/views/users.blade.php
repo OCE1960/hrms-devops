@@ -10,7 +10,7 @@
     </div>
 
     <div class="col-sm-6">
-        <button class="btn btn-primary float-right" data-add-group="0"> Add New Staff </button>
+        <button class="btn btn-primary float-right" id="add-new-staff" data-add-group="0"> Add New Staff </button>
     </div> 
 
     </div>
@@ -66,6 +66,8 @@
             <div class="text-center text-danger col-sm-12"> No Staff Record</div>          
         @endif 
     </div> <!-- /#info-box -->
+
+    @include('modals.add-staff-modal')
 
 @stop
 
