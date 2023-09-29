@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreLeaveRequestRequest;
-use App\Http\Requests\UpdateLeaveRequestRequest;
 use App\Models\LeaveRequest;
 
 class LeaveRequestController extends Controller
@@ -13,6 +11,7 @@ class LeaveRequestController extends Controller
      */
     public function index()
     {
-        return view('dashboard'); 
+        $leaveRequets = LeaveRequest::all();
+        return view('leave-requests')->with('leaveRequets', $leaveRequets); 
     }
 }

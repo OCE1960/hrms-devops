@@ -1,12 +1,12 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Leave Request Dashboard')
 
 @section('content_header')
 <div class="row">
 
     <div class="col-sm-6">
-        <h4 class="m-0 text-dark">Staff Dashboard</h4>
+        <h4 class="m-0 text-dark">Leave Request Dashboard</h4>
     </div>
 
 
@@ -14,11 +14,7 @@
 @stop
 
 
-@section('content')
-
-    @canany(['Admin'])
-        @include('dashboard-analytics')
-    @endcanany            
+@section('content')           
     
     <div class="row shadow p-3 bg-white rounded" id="info">
 
