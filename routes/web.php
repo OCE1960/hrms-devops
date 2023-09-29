@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LeaveRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,3 +30,17 @@ Route::get('/clear-cache', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('dashboard')->group(function() {
+
+    Route::middleware(['auth'])->group(function() {
+        Route::controller(DashboardController::class)->group(function () {
+            Route::get('/', 'index')->name('dashboard');
+            Route::get('/users', 'getUsers')->name('users');
+        });
+
+        Route::controller(LeaveRequestController::class)->group(function () {
+            Route::get('/leave-requests', 'index')->name('leave.requests');
+        });
+    });
+});

@@ -42,4 +42,38 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function adminlte_image()
+    {
+        return 'https://picsum.photos/300/300';
+    }
+
+    public function adminlte_desc()
+    {
+        return 'That\'s a nice guy';
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+    public function hasRole($role_id)
+    {
+        foreach($this->roles()->get() as $user_role)
+        {
+            if($user_role->id == $role_id)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    
+    }
+
+    public function leaveRequests()
+    {
+        return $this->hasMany(LeaveRequest::class, 'user_id', 'id');
+    }
 }

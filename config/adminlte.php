@@ -187,7 +187,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'dashboard',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => null,
@@ -232,21 +232,21 @@ return [
         */
         [
             'text' => 'Dashboard',
-            'route'  => 'admin.dashboard',
+            'route'  => 'dashboard',
             'icon' => 'fas fa-tachometer-alt',
             'can' => ['Admin','Manager', 'Staff'],
         ],
 
         [
-            'text' => 'Users',
-            'route'  => 'admin.users',
+            'text' => 'Staff',
+            'route'  => 'users',
             'icon' => 'fas fa-users',
             'can' => [ 'Admin'],
         ],
  
         [
-            'text' => 'Schools',
-            'route'  => 'admin.schools',
+            'text' => 'Leave Request',
+            'route'  => 'leave.requests',
             'icon' => 'fas fa-school',
             'can' => ['Admin'],
         ],
