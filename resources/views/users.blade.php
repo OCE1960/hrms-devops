@@ -9,6 +9,9 @@
         <h4 class="m-0 text-dark">Staff Dashboard</h4>
     </div>
 
+    <div class="col-sm-6">
+        <button class="btn btn-primary float-right" data-add-group="0"> Add New Staff </button>
+    </div> 
 
     </div>
 @stop

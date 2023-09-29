@@ -9,6 +9,10 @@
         <h4 class="m-0 text-dark">Leave Request Dashboard</h4>
     </div>
 
+    <div class="col-sm-6">
+        <button class="btn btn-primary float-right" data-add-group="0"> Request for Leave </button>
+    </div> 
+
 
     </div>
 @stop
