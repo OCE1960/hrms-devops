@@ -32,10 +32,10 @@
                             <th scope="col" >Name</th>
                             <th scope="col" >title</th>
                             <th scope="col" width="30%" >description</th>
-                            <th scope="col" style="width:100px;"  >Start Date</th>
-                            <th scope="col" style="width:100px;" >End Date</th>
+                            <th scope="col" style="width:120px;"  >Start Date</th>
+                            <th scope="col" style="width:120px;" >End Date</th>
                             <th scope="col">Status</th>
-                            <th scope="col" style="width:100px;"></th>
+                            <th scope="col" style="width:190px;"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -67,8 +67,12 @@
                                 
                                 </td>
 
-                                <td class="text-center"> 
-                                        <button title="View" class="btn btn-xs btn-info mr-2 mb-2" data-view-project="#"> <i class="fas fa-eye"></i> View  </button>    
+                                <td class="text-center">  
+                                       <button title="View" class="btn btn-xs btn-info mr-2 mb-2" data-view-project="#"> <i class="fas fa-eye"></i> View  </button>  
+                                        
+                                        @canany(['Admin'])
+                                            <button title="View" class="btn btn-xs btn-success mr-2 mb-2" data-view-project="#"> <i class="fas fa-eye"></i> Approve </button>  
+                                        @endcanany
                                 </td>
                             </tr>
                     

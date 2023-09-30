@@ -15,7 +15,7 @@
 
         <form>
           @csrf
-          <div id="role_error" class="project-topic-backend-json-response"></div>
+          <div id="error-response-display" class="error-response-display"></div>
 
           <input type="hidden" class="form-control" id="user-status" name="user-status">
 
@@ -46,7 +46,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="save-new-project-topic" class="btn btn-primary" data-add-role="role">Save</button>
+        <button type="button" id="save-new-staff" class="btn btn-primary" data-add-role="role">Save</button>
       </div>
     </div>
   </div>
@@ -69,16 +69,17 @@
 
 
              //Functionality to save New Entry
-            $(document).on('click','#save-new-project-topic',function(e) {
+            $(document).on('click','#save-new-staff',function(e) {
                 e.preventDefault();
                 $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('input[name="_token"]').val()}});
-                $('#save-new-project-topic').attr('disabled', true);
+                $('#save-new-staff').attr('disabled', true);
                 $('.spms-loader').show();
                 let formData = new FormData();
                 formData.append('_token', $('input[name="_token"]').val());
-                formData.append('name', $('#title').val());
-                formData.append('description', $('#body').val());
-                formData.append('user_type', $('#user-status').val());
+                formData.append('name', $('#name').val());
+                formData.append('phone_no', $('#phone_no').val());
+                formData.append('email', $('#email').val());
+                formData.append('password', $('#password').val());
 
      
                 let url = "{{ route('users') }}";
@@ -93,7 +94,7 @@
                 success: function(result){
             
                                 $('.spms-loader').hide();
-                                $('.project-topic-backend-json-response').hide();
+                                $('.error-response-display').hide();
                                 swal.fire({
                                             title: "Saved",
                                             text: "Announcement Successfull Created",
@@ -105,7 +106,7 @@
                                             closeOnConfirm: false
                                         });
                                 window.setTimeout( function(){
-                                    $('#add-new-project-topic-modal').modal('hide');
+                                    $('#add-new-staff-modal').modal('hide');
                                         location.reload(true);
                                 },2000);
                                 
@@ -115,10 +116,10 @@
                 error : function(response, textStatus, errorThrown){
                                 
                             $('.spms-loader').hide();
-                            $('#save-new-project-topic').attr('disabled', false);
-                            $('.project-topic-backend-json-response').html('');
+                            $('#save-new-staff').attr('disabled', false);
+                            $('.error-response-display').html('');
                             $.each(response.responseJSON.errors, function(key, value){
-                                $('.project-topic-backend-json-response').append('<span class="alert alert-danger mr-4" style="display:inline-block;"> <i class="fa fa-times mr-2"></i>  '+value+'</span>');
+                                $('.error-response-display').append('<span class="alert alert-danger mr-4" style="display:inline-block;"> <i class="fa fa-times mr-2"></i>  '+value+'</span>');
                             }); 
                 },
                             dataType: 'json'

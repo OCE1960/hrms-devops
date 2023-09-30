@@ -73,6 +73,8 @@
         <meta name="msapplication-TileImage" content="{{ asset('favicon/ms-icon-144x144.png') }}">
     @endif
 
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+
 </head>
 
 <body class="@yield('classes_body')" @yield('body_data')>
