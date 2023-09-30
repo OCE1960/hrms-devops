@@ -82,7 +82,7 @@
                 formData.append('password', $('#password').val());
 
      
-                let url = "{{ route('users') }}";
+                let url = "{{ route('users.store') }}";
                   
                 $.ajax({
                 url: url,
@@ -93,36 +93,33 @@
                 contentType: false,
                 success: function(result){
             
-                                $('.spms-loader').hide();
-                                $('.error-response-display').hide();
-                                swal.fire({
-                                            title: "Saved",
-                                            text: "Announcement Successfull Created",
-                                            type: "success",
-                                            showCancelButton: false,
-                                            closeOnConfirm: false,
-                                            confirmButtonClass: "btn-success",
-                                            confirmButtonText: "OK",
-                                            closeOnConfirm: false
-                                        });
-                                window.setTimeout( function(){
-                                    $('#add-new-staff-modal').modal('hide');
-                                        location.reload(true);
-                                },2000);
-                                
-
-
+                  $('.spms-loader').hide();
+                  $('.error-response-display').hide();
+                  swal.fire({
+                    title: "Saved",
+                    text: "Announcement Successfull Created",
+                    type: "success",
+                    showCancelButton: false,
+                    closeOnConfirm: false,
+                    confirmButtonClass: "btn-success",
+                    confirmButtonText: "OK",
+                    closeOnConfirm: false
+                  });
+                  window.setTimeout( function(){
+                      $('#add-new-staff-modal').modal('hide');
+                          location.reload(true);
+                  },2000);
                 },
                 error : function(response, textStatus, errorThrown){
                                 
-                            $('.spms-loader').hide();
-                            $('#save-new-staff').attr('disabled', false);
-                            $('.error-response-display').html('');
-                            $.each(response.responseJSON.errors, function(key, value){
-                                $('.error-response-display').append('<span class="alert alert-danger mr-4" style="display:inline-block;"> <i class="fa fa-times mr-2"></i>  '+value+'</span>');
-                            }); 
+                  $('.spms-loader').hide();
+                  $('#save-new-staff').attr('disabled', false);
+                  $('.error-response-display').html('');
+                  $.each(response.responseJSON.errors, function(key, value){
+                      $('.error-response-display').append('<span class="alert alert-danger mr-4" style="display:inline-block;"> <i class="fa fa-times mr-2"></i>  '+value+'</span>');
+                  }); 
                 },
-                            dataType: 'json'
+                dataType: 'json'
             }); 
             })
            
