@@ -85,12 +85,17 @@
                 $('#save-new-staff').attr('disabled', true);
                 $('.spms-loader').show();
                 let formData = new FormData();
+                let role = $('#role').val();
                 formData.append('_token', $('input[name="_token"]').val());
                 formData.append('name', $('#name').val());
                 formData.append('phone_no', $('#phone_no').val());
                 formData.append('email', $('#email').val());
                 formData.append('password', $('#password').val());
-                formData.append('role', $('#role').val());
+                if (role == null) {
+                  formData.append('role', '');
+                }else {
+                  formData.append('role', role);
+                }
      
                 let url = "{{ route('users.store') }}";
                   

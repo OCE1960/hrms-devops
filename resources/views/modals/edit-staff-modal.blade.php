@@ -108,12 +108,17 @@
                 $('#save-edit-staff').attr('disabled', true);
                 $('#spms-loader').show();
                 const id = $('#edit_user_id').val()
+                let role = $('#edit_role').val();
                 let formData = new FormData();
                 formData.append('_token', $('input[name="_token"]').val());
                 formData.append('name', $('#edit_name').val());
                 formData.append('email', $('#edit_email').val());
                 formData.append('phone_no', $('#edit_phone_no').val());
-                formData.append('role', $('#edit_role').val());
+                if (role == null) {
+                  formData.append('role', '');
+                }else {
+                  formData.append('role', role);
+                }
                 formData.append('id', id);
                 
                 const url = "{{ route('users.update','') }}/"+id;

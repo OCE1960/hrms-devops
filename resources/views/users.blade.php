@@ -71,6 +71,7 @@
 
     @include('modals.add-staff-modal')
     @include('modals.edit-staff-modal')
+    @include('modals.view-staff-modal')
 
 @stop
 
