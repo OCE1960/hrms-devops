@@ -106,6 +106,39 @@
 
     {{-- Custom Scripts --}}
     @yield('adminlte_js')
+    <script type="text/javascript">
+        $("select").css('width', '60%');
+        $('.select2').select2();
+        // $('.textarea').summernote({
+        //     height: 400,
+        //     tabsize: 2,
+        //     toolbar: [
+        //         ['style', ['style']],
+        //         ['font', ['bold', 'underline', 'clear']],
+        //         ['color', ['color']],
+        //         ['para', ['ul', 'ol', 'paragraph']],
+        //         ['table', ['table']],
+        //         ['insert', ['link']],
+        //         ['view', ['fullscreen', 'codeview', 'help']]
+        //     ],
+        // });
+
+        // $('.textarea2').summernote({
+        //     height: 200,
+        //     tabsize: 2,
+        //     toolbar: [
+        //         ['style', ['style']],
+        //         ['font', ['bold', 'underline', 'clear']],
+        //         ['color', ['color']],
+        //         ['para', ['ul', 'ol', 'paragraph']],
+        //         ['table', ['table']],
+        //         ['insert', ['link']],
+        //         ['view', ['fullscreen', 'codeview', 'help']]
+        //     ],
+        // });
+
+        // bsCustomFileInput.init();
+    </script>
 
 </body>
 

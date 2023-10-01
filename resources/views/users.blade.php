@@ -51,7 +51,9 @@
                                 <th>{{ $user->phone_no }}</th>
 
                                 <td class="text-center"> 
-                                        <button title="View" class="btn btn-xs btn-info mr-2 mb-2" data-view-project="#"> <i class="fas fa-eye"></i> View  </button>    
+                                        <button title="View" class="btn btn-xs btn-info mr-2 mb-2" data-view-user="{{ $user->id }}"> <i class="fas fa-eye"></i> View  </button> 
+                                        
+                                        <button title="View" class="btn btn-xs btn-success mr-2 mb-2" data-edit-user="{{ $user->id }}"> <i class="fas fa-edit"></i> Edit  </button>   
                                 </td>
                             </tr>
                     
@@ -68,6 +70,7 @@
     </div> <!-- /#info-box -->
 
     @include('modals.add-staff-modal')
+    @include('modals.edit-staff-modal')
 
 @stop
 

@@ -18,5 +18,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::controller(DashboardController::class)->group(function () {
         Route::post('/users', 'store')->name('users.store');
+        Route::get('/users/{id}', 'viewUser')->name('users.show');
+        Route::post('/users/update/{id}', 'update')->name('users.update');
     });
 });

@@ -20,6 +20,16 @@
           <input type="hidden" class="form-control" id="user-status" name="user-status">
 
             <div class="form-row">
+
+                <div class="form-group col-md-4">
+                    <label for="role">Roles</label>
+                    <select id="role" name="role" class="form-control role">
+                        <!-- <option value="" >Choose...</option> -->
+                          @foreach($roles as $role)
+                                  <option value="{{ $role->id }}"> {{ $role->role  }} </option>
+                          @endforeach
+                    </select>
+                </div>
                 <div class="form-group col-md-12">
                     <label for="title">Name</label>
                     <input type="text" class="form-control" id="name" name="name">
@@ -80,7 +90,7 @@
                 formData.append('phone_no', $('#phone_no').val());
                 formData.append('email', $('#email').val());
                 formData.append('password', $('#password').val());
-
+                formData.append('role', $('#role').val());
      
                 let url = "{{ route('users.store') }}";
                   
