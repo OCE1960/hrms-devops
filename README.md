@@ -10,3 +10,5 @@
 ### To Start the Laravel Application
 `docker-compose exec fpm php artisan serve`
 
+### Adding Github CI/CD Action
+
