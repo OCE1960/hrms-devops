@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LeaveRequestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +21,9 @@ Route::middleware('auth:sanctum')->group(function() {
         Route::post('/users', 'store')->name('users.store');
         Route::get('/users/{id}', 'viewUser')->name('users.show');
         Route::post('/users/update/{id}', 'update')->name('users.update');
+    });
+
+    Route::controller(LeaveRequestController::class)->group(function () {
+        Route::get('/leave-requests/{id}', 'viewLeaveRequest')->name('view.leave.requests');
     });
 });
