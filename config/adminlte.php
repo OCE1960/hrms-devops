@@ -241,14 +241,14 @@ return [
             'text' => 'Staff',
             'route'  => 'users',
             'icon' => 'fas fa-users',
-            'can' => [ 'Admin'],
+            'can' => [ 'Admin', 'Manager'],
         ],
  
         [
             'text' => 'Leave Request',
             'route'  => 'leave.requests',
             'icon' => 'fas fa-school',
-            'can' => ['Admin'],
+            'can' => ['Admin', 'Manager', 'Staff'],
         ],
     ],
     /*
