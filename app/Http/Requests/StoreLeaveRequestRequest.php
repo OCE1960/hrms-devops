@@ -11,7 +11,7 @@ class StoreLeaveRequestRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,25 @@ class StoreLeaveRequestRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|max:191',
+            'description' => "required",
+            'start_date' => "required|date",
+            'end_date' => 'required|date',
+        ];
+    }
+
+    /**
+     * Get custom attributes for validator errors.
+     *
+     * @return array
+    */
+    public function attributes()
+    {
+        return [
+            'title' => 'Title',
+            'description' => 'Description',
+            'start_date' => 'Start Date',
+            'end_date' => 'End Date',
         ];
     }
 }

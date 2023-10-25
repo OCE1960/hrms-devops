@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->date('start_date');
             $table->date('end_date');
-            $table->boolean('status')->default(false);
+            $table->boolean('status')->nullable();
             $table->timestamps();
         });
     }

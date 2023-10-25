@@ -32,6 +32,10 @@
 
         @include('modals.view-leave-request-modal')
 
+        @canany(['Admin', 'Manager'])
+            @include('modals.leave-request-approval-modal')
+        @endcanany
+
     </div> <!-- /#info-box -->
 
 @stop

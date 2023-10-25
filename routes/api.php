@@ -25,5 +25,7 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::controller(LeaveRequestController::class)->group(function () {
         Route::get('/leave-requests/{id}', 'viewLeaveRequest')->name('view.leave.requests');
+        Route::post('/leave-requests/{id}', 'processLeaveRequestApproval')->name('leave.requests.approval');
+        Route::post('/leave-requests', 'store')->name('leave.requests.store');
     });
 });
