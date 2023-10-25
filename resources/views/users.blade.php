@@ -31,7 +31,7 @@
                             <th scope="col" >Name</th>
                             <th scope="col" >Email</th>
                             <th scope="col">Phone Number</th>
-                            <th scope="col" style="width:100px;"></th>
+                            <th scope="col" style="width:120px;"></th>
                         </tr>
                     </thead>
                     <tbody>

@@ -73,7 +73,7 @@ class UserSeeder extends Seeder
         $leaveRequest1->save();
 
         $leaveRequest1 = new LeaveRequest;
-        $leaveRequest1->user_id = $user1->id;
+        $leaveRequest1->user_id = $user3->id;
         $leaveRequest1->title = 'Summer Leave 3';
         $leaveRequest1->description = 'I kindly Request for Summer Leave 3';
         $leaveRequest1->start_date = '2023-10-23';

@@ -93,7 +93,7 @@
                         $('#edit_email').val(result.data.user.email)
                         $('#edit_phone_no').val(result.data.user.phone_no)
                         $('#edit_user_id').val(result.data.user.id)
-                        $('#edit_role').val(result.data.role.id)
+                       // $('#edit_role').val(result.data.role.id)
                         $('#edit-user-modal').modal('show');
                     }
                   },

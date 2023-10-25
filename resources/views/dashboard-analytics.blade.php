@@ -20,7 +20,7 @@
                 <!-- Apply any bg-* class to to the icon to color it -->
                 <span class="info-box-icon bg-primary"><i class="fas fa-school"></i></span>
                 <div class="info-box-content">
-                    <a href="{{ route('leave.requests') }}">
+                    <a href="#">
                         <span class="info-box-text">Roles </span>
                         <span class="info-box-number"> {{ count($roles) }} </span>
                     </a>
