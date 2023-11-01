@@ -1,4 +1,5 @@
 name: HRMS
+run-name: ${{ github.actor }} is testing out GitHub Action on HMRS
 
 on:
   push:
