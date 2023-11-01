@@ -54,9 +54,9 @@ class DashboardController extends Controller
          if (empty($user)) {
            return $this->sendErrorResponse(['User does not exist']);
         }
-       $role = $user->roles;
+        $role = $user->roles;
        $data = ['user' => $user,
-                'role' => $role[0]
+                'role' => is_array($role) ? $role[0] : null
                 ];
 
        return $this->sendSuccessResponse('Staff Record Successfully Retrived',$data);
