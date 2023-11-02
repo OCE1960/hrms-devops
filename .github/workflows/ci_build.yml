@@ -24,13 +24,6 @@ jobs:
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
       
     steps:
-    - name: Install composer dependencies
-      run: echo 'testing'
- 
-  test-application:
-    needs: build-application
-    runs-on: ubuntu-latest
-    steps:
     - uses: actions/checkout@v1
       with:
         fetch-depth: 1
