@@ -32,6 +32,10 @@ jobs:
       run: |
         composer install --no-scripts
  
+  test-application:
+    needs: build-application
+    runs-on: ubuntu-latest
+    steps:
     - name: Prepare Laravel Application
       run: |
         cp .env.ci .env
