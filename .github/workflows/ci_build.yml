@@ -3,9 +3,11 @@ run-name: ${{ github.actor }} is testing out GitHub Action on HMRS
 
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
   build-application:
