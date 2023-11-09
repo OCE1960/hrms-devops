@@ -1,5 +1,5 @@
 name: HRMS
-run-name: ${{ github.actor }} is testing out GitHub Action on HMRS
+run-name: ${{ github.actor }} is testing out Continuos Integration on HMRS
 
 on:
   pull_request:
