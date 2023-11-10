@@ -1,46 +1,30 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
+name: Push-to-EC2
 
-# GitHub recommends pinning actions to a commit SHA.
-# To get a newer version, you will need to update the SHA.
-# You can also reference a tag or branch, but the action may change without warning.
-
-name: Deploy to Amazon ECS
-
+# Trigger deployment only on push to master branch
 on:
   push:
     branches:
-      - main
-
-env:
-  AWS_REGION: eu-west-2                                      # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: swe7103/hrms                               # set this to your Amazon ECR repository name
-  ECS_SERVICE: swe7103-hrms-service                                     # set this to your Amazon ECS service name
-  ECS_CLUSTER: swe7103-hrms-cluster                                    # set this to your Amazon ECS cluster name
-  ECS_TASK_DEFINITION: .aws/task_definition.json               # set this to the path to your Amazon ECS task definition
-                                                                  # file, e.g. .aws/task-definition.json
-  CONTAINER_NAME: fargate-app                               # set this to the name of the container in the
-                                                                  # containerDefinitions section of your task definition
+      - master
 
 jobs:
   deploy:
+    name: Deploy to EC2 on master branch push
     runs-on: ubuntu-latest
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-    - name: Set up PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '8.1.7'
-    - name: Install dependencies
-      run: composer install --no-dev
-    - name: Set up AWS CLI
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ env.AWS_REGION }}
-    - name: Deploy to AWS EC2
-      run: ssh ${{ secrets.AWS_INSTANCE_IP }} "cd /var/www/html && git pull && composer install  --no-dev"
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1.7'
+      - name: Install dependencies
+        run: composer install --no-dev
+
+      - name: Deploy to Server 1
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
