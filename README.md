@@ -1,5 +1,5 @@
 
-## About HRMS - Human Resource Management System
+## About HRMS - Human Resource Management Systems
 
 ### To Build the docker Container
 `docker-compose build`
