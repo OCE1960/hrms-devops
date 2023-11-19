@@ -22,7 +22,7 @@
             <div class="form-row">
 
                 <div class="form-group col-md-12">
-                    <label for="title">title</label>
+                    <label for="title">Title</label>
                     <input type="text" class="form-control" id="title" name="title">
                 </div>
 

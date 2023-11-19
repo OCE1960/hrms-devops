@@ -47,7 +47,7 @@
                         <td class="text-center">  
                             <button title="View" class="btn btn-xs btn-info mr-2 mb-2" data-view-leave-request="{{ $leaveRequet->id }}"> <i class="fas fa-eye"></i> View  </button>  
                             
-                            @canany(['Admin'])
+                            @canany(['Manager'])
                                 <button title="View" class="btn btn-xs btn-primary mr-2 mb-2" data-approve-leave-request="{{ $leaveRequet->id }}"> <i class="fas fa-eye"></i> Process </button>  
                             @endcanany
                         </td>
