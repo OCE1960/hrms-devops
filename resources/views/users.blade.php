@@ -10,7 +10,11 @@
     </div>
 
     <div class="col-sm-6">
-        <button class="btn btn-primary float-right" id="add-new-staff" data-add-group="0"> Add New Staff </button>
+
+        @canany(['Admin'])
+            <button class="btn btn-primary float-right" id="add-new-staff" data-add-group="0"> Add New Staff </button>
+        @endcanany
+            
     </div> 
 
     </div>
@@ -52,8 +56,11 @@
 
                                 <td class="text-center"> 
                                         <button title="View" class="btn btn-xs btn-info mr-2 mb-2" data-view-user="{{ $user->id }}"> <i class="fas fa-eye"></i> View  </button> 
-                                        
-                                        <button title="View" class="btn btn-xs btn-success mr-2 mb-2" data-edit-user="{{ $user->id }}"> <i class="fas fa-edit"></i> Edit  </button>   
+
+                                        @canany(['Admin'])
+                                            <button title="View" class="btn btn-xs btn-success mr-2 mb-2" data-edit-user="{{ $user->id }}"> <i class="fas fa-edit"></i> Edit  </button>  
+                                        @endcanany
+                                         
                                 </td>
                             </tr>
                     

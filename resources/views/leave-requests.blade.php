@@ -27,7 +27,7 @@
         @endcanany
         
         @canany(['Staff'])
-            @include('partials.admin-dashboard-content')
+            @include('partials.staff-dashboard-content')
         @endcanany
 
         @include('modals.view-leave-request-modal')
